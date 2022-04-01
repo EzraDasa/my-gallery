@@ -1,0 +1,44 @@
+.container{
+    border: black 1px solid;
+    padding: 1%;
+}
+
+.containerPhotos{
+    grid-template-columns: repeat(4,1fr);
+    display: grid;
+    overflow: auto;
+    height: 40vh;
+    gap: 1%;
+}
+
+.card{
+    height: 25vh;
+    padding: 1%;
+}
+
+img{
+    width: 100%;
+    height: 75%;
+}
+.photoAndTag{
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1%;
+}
+svg{
+    cursor: pointer;
+}
+
+@media screen and (max-width:768px){
+    .containerPhotos{
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+
+@media screen and (max-width:426px){
+    .containerPhotos{
+        grid-template-columns: repeat(2,1fr);
+    }
+}

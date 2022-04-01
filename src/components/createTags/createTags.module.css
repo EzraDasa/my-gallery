@@ -1,0 +1,18 @@
+.containerTags{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    height: 100%;
+    max-height: 95vh;
+    border: 1px solid black;
+    padding: 2px;
+}
+
+.inputTags{
+    width: 90%;
+    padding: 2px;
+}
+
+
+

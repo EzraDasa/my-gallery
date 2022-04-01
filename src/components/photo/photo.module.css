@@ -1,0 +1,39 @@
+.card{
+    position: relative;
+    height: 25vh;
+    padding: 1%;
+}
+
+img{
+    width: 100%;
+    height: 75%;
+}
+.photoAndTag{
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1%;
+}
+svg{
+    cursor: pointer;
+}
+
+.listTags{
+    position: absolute;
+    z-index: 1;
+    background-color: white;
+    width: 70%;
+}
+
+.photos{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-bottom: 1px solid black;
+}
+
+.photo{
+    width: 20%;
+    height: 40px;
+}

@@ -1,0 +1,18 @@
+.assign{
+    display:flex;
+    width:100%;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.inputEdit{
+    width: 100%;
+}
+
+.btnEdit{
+    width: 20%;
+}
+
+p{
+    padding-left: 3%;
+}

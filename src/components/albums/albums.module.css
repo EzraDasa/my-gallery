@@ -1,0 +1,18 @@
+.albums{
+    grid-template-columns: repeat(4,1fr);
+    display: grid;
+    gap: 1%;
+    padding-top: 1%;
+}
+
+@media screen and (max-width:768px){
+    .albums{
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+
+@media screen and (max-width:426px){
+    .albums{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
