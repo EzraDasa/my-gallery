@@ -1,5 +1,5 @@
 import './dragDrop.css';
-import Gallery from '../gallery/Gallery';
+import Photos from '../photos/Photos';
 import Albums from '../albums/Albums';
 import CreateTags from '../createTags/CreateTags';
 import {DndProvider} from 'react-dnd';
@@ -10,8 +10,8 @@ export default function DragDrop() {
       <DndProvider backend={HTML5Backend}>
         <div className='dragDrop'>
             <CreateTags/>
-            <div className="galleryAlbums">
-            <Gallery />
+            <div className="photosAlbums">
+            <Photos />
             <Albums/>
             </div>
         </div>

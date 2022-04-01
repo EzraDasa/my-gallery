@@ -6,13 +6,13 @@ import Album from '../album/Album';
 export default function Albums() {
 
   const { tags} = useContext(userContext)
+  const searchAlbumRef = useRef("")
   
   const [albums,setAlbums] = useState(tags); 
-  console.log(albums);
+  
   useEffect(()=>{
     setAlbums(tags)
   },[tags])
-  const searchAlbumRef = useRef("")
 
   const filterAlbum =()=>{
     const filterAlbums = tags.filter((album)=>album.name.indexOf(searchAlbumRef.current.value) >  -1)

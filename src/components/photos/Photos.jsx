@@ -1,9 +1,9 @@
 import {useContext} from 'react';
 import {userContext} from '../context/Context';
-import style from './gallery.module.css';
+import style from './photos.module.css';
 import Photo from '../photo/Photo';
 
-export default function Gallery() {
+export default function Photos() {
 
   const {photos} = useContext(userContext);
 
@@ -13,7 +13,7 @@ export default function Gallery() {
         <div className={style.containerPhotos}>
             {photos.map((photo,i)=>{
                 return(
-                <Photo index={i} photo={photo} key={photo.id}/>
+                <Photo id={i} photo={photo} key={photo.id}/>
                 )
             })}
         </div>

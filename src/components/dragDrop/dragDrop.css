@@ -2,27 +2,19 @@
     display: flex;
     padding: 1%;
 }
-button{
-    background-color: rgb(182, 231, 231);
-    width: 70%;
-    border-radius: 5px;
-    border: 1px black solid;
-    text-align: center;
-    margin: 3%;
+
+.photosAlbums{
+  width: 100%;
+  text-align: center;
+  margin-left: 1%;
+}
+
+@media screen and (max-width:768px){
+  .dragDrop{
+    flex-direction: column;
   }
-  
-  .galleryAlbums{
-    width: 100%;
-    text-align: center;
-    margin-left: 1%;
+  .dragDrop>div{
+    width: 97%;
+    margin-bottom: 2%;
   }
-  
-  @media screen and (max-width:768px){
-    .dragDrop{
-      flex-direction: column;
-    }
-    .dragDrop>div{
-      width: 97%;
-      margin-bottom: 2%;
-    }
-  }
+}

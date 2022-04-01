@@ -6,7 +6,7 @@ import Tags from '../tags/Tags';
 import { VscTrash } from "react-icons/vsc";
 import {useDrag} from 'react-dnd';
 
-export default function Photo({photo,tag,index}) {
+export default function Photo({photo,tag,id}) {
 
     const {tags,setTags,setSelectedPhoto,setSelectedTag} = useContext(userContext);
 
@@ -24,7 +24,7 @@ export default function Photo({photo,tag,index}) {
         return()=>{document.removeEventListener("click",checkIfClickOutside)}
     },[isMenuOpen])
     
-    const handleClickOnTag =()=>{
+    const openMenuTags =()=>{
         setSelectedPhoto({photo,isActive:false});
         setSelectedTag(null)
         setIsMenuOpen(true);
@@ -33,7 +33,7 @@ export default function Photo({photo,tag,index}) {
     const deletePhoto = ()=>{
         const copyTags = [...tags];
         const findTag = tags.findIndex((album)=>album.name == tag.name);
-        copyTags[findTag].photos.splice(index,1)
+        copyTags[findTag].photos.splice(id,1)
         setTags(copyTags)
         setSelectedPhoto(null)
         localStorage.setItem("tagsData",JSON.stringify(copyTags))
@@ -48,21 +48,23 @@ export default function Photo({photo,tag,index}) {
     }))
 
   return (
-    <div className={!tag?style.card:style.photos} key={photo?.id}>
-        <img ref={drag} className={tag?style.photo:null} id={index} src={photo?.download_url}
+    <div
+     className={!tag ?style.gallery:style.tags} 
+     key={photo?.id}>
+        <img ref={!tag?drag:null} className={tag?style.photoInAlbum:null} src={photo?.download_url}
         style={{border:isDragging?"2px solid red":null}}
          onClick={
             ()=>{
             setSelectedPhoto({photo,isActive:true});
             setSelectedTag(null)}
             }/>
-        <div className={style.photoAndTag}>
-            <p>{photo?.author}</p>
-            <div>
             <div ref={menuRef} className={style.listTags}>
                 {isMenuOpen?<Tags isMenuOpen={isMenuOpen}/>:""}
             </div>
-            {tag?"":<BsTag onClick={handleClickOnTag}/>}
+        <div className={style.photoNameAndIcon}>
+            <p className={style.fontAuthor}>{photo?.author}</p>
+            <div>
+            {!tag?<BsTag onClick={openMenuTags}/>:""}
             </div>
         </div>
             {tag?<VscTrash onClick={deletePhoto}/>:""}
