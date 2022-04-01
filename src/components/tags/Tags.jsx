@@ -10,6 +10,7 @@ export default function Tags({ isMenuOpen }) {
     const copyTags = [...tags]
     copyTags.splice(index, 1)
     setTags(copyTags)
+    localStorage.setItem("tagsData",JSON.stringify(copyTags))
   }
 
   const handleApply = () => {
