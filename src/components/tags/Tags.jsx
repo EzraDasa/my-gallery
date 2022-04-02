@@ -4,7 +4,7 @@ import style from './tags.module.css'
 import Tag from '../tag/Tag'
 
 export default function Tags({ isMenuOpen }) {
-  const { tags, setTags, selectedPhoto, selectedTag } = useContext(userContext)
+  const { tags, setTags, selectedPhoto,setSelectedPhoto, selectedTag,setSelectedTag } = useContext(userContext)
 
   const deleteTag = (index) => {
     const copyTags = [...tags]
@@ -22,6 +22,8 @@ export default function Tags({ isMenuOpen }) {
     })
     setTags(copyTags)
     localStorage.setItem('tagsData', JSON.stringify(copyTags))
+    setSelectedPhoto(null)
+    setSelectedTag(null)
   }
 
   return (

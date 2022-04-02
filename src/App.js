@@ -8,7 +8,6 @@ function App() {
   const [photos,setPhotos]= useState([]);
   const [selectedPhoto,setSelectedPhoto] = useState(null);
   const [selectedTag,setSelectedTag] = useState(null);
-  
   const [tags,setTags]= useState([]);
   
   useEffect(()=>{

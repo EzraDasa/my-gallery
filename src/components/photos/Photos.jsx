@@ -13,7 +13,7 @@ export default function Photos() {
         <div className={style.containerPhotos}>
             {photos.map((photo,i)=>{
                 return(
-                <Photo id={i} photo={photo} key={photo.id}/>
+                <Photo id={i} photo={photo} key={photo.id} isGallery={true}/>
                 )
             })}
         </div>

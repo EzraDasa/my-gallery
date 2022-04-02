@@ -6,7 +6,7 @@ import Tags from '../tags/Tags';
 import { VscTrash } from "react-icons/vsc";
 import {useDrag} from 'react-dnd';
 
-export default function Photo({photo,tag,id}) {
+export default function Photo({photo,tag,id,isGallery}) {
 
     const {tags,setTags,setSelectedPhoto,setSelectedTag} = useContext(userContext);
 
@@ -44,14 +44,14 @@ export default function Photo({photo,tag,id}) {
         item:{photo:photo},
         collect: (monitor)=>({
             isDragging: !!monitor.isDragging(),
-        }),
+        })
     }))
 
   return (
     <div
-     className={!tag ?style.gallery:style.tags} 
+     className={isGallery ?style.gallery:style.tags} 
      key={photo?.id}>
-        <img ref={!tag?drag:null} className={tag?style.photoInAlbum:null} src={photo?.download_url}
+        <img ref={isGallery?drag:null} className={!isGallery?style.photoInAlbum:null} src={photo?.download_url}
         style={{border:isDragging?"2px solid red":null}}
          onClick={
             ()=>{
@@ -64,10 +64,10 @@ export default function Photo({photo,tag,id}) {
         <div className={style.photoNameAndIcon}>
             <p className={style.fontAuthor}>{photo?.author}</p>
             <div>
-            {!tag?<BsTag onClick={openMenuTags}/>:""}
+            {isGallery?<BsTag onClick={openMenuTags}/>:""}
             </div>
         </div>
-            {tag?<VscTrash onClick={deletePhoto}/>:""}
+            {!isGallery?<VscTrash onClick={deletePhoto}/>:""}
     </div>
   )
 }

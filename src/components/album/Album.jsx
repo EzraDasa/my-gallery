@@ -21,7 +21,7 @@ export default function Album({album,index}) {
     drop: (item)=> addPhotoToAlbum(item.photo),
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),
-    }),
+    })
     }))
 
   return (
