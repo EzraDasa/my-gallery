@@ -14,9 +14,9 @@ export default function Tag({id,tag,isMenuOpen,deleteTag}) {
             backgroundColor:
             (!selectedPhoto?.isActive && !isMenuOpen) ||
             selectedTag == tag.name
-                ? tag.color
+                ? tag?.color
                 : '',
-            border: `${tag.color} 1px solid`
+            border: `${tag?.color} 1px solid`
         }}
         >
         <Assign
